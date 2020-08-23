@@ -1,6 +1,6 @@
-package project_oriented_programming.projeto_java_poo.classes;
 
-public class Pessoas{
+
+public abstract class Pessoas{
     private String nome;
     private String cpf;
     private String email;
@@ -18,7 +18,7 @@ public class Pessoas{
     
     public void setName(String nome){
         this.nome = nome;
-    }
+    } 
 
     public String getCpf(){
         return cpf;

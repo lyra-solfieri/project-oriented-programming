@@ -1,4 +1,4 @@
-package project_oriented_programming.projeto_java_poo;
+
 
 public class Gerente extends Pessoas{
     private String login;
