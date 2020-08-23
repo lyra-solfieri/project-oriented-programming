@@ -1,15 +1,15 @@
 
 
 public class Clientes extends Pessoas{
-    private String endereco;
+    private  Endereco endereco;
 
-    public Clientes(String nome, String cpf, String email,String telefone, String endereco){
+    public Clientes(String nome, String cpf, String email,String telefone, Endereco endereco){
         super(nome, cpf, email, telefone);
     }
-    public String getEndereco(){
+    public Endereco getEndereco(){
         return endereco;
     }
-    public void setEndereco(String endereco){
+    public void setEndereco(Endereco endereco){
         this.endereco = endereco;
     }
    
