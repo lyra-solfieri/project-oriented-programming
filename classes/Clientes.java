@@ -5,6 +5,7 @@ public class Clientes extends Pessoas{
 
     public Clientes(String nome, String cpf, String email,String telefone, Endereco endereco){
         super(nome, cpf, email, telefone);
+        this.endereco = endereco;
     }
     public Endereco getEndereco(){
         return endereco;
