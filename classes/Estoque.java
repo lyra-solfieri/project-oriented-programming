@@ -1,29 +1,27 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Estoque {
 
-    private Produtos[] prateleiras;
-
-
+    private ArrayList<Produtos> produtos = new ArrayList<Produtos>();
 
     public Estoque() {
     }
-    
 
-    public Estoque(Produtos[] prateleiras) {
-        this.prateleiras = prateleiras;
+    public Estoque(ArrayList<Produtos> produtos) {
+        this.produtos = produtos;
     }
 
-    public Produtos[] getPrateleiras() {
-        return this.prateleiras;
+    public ArrayList<Produtos> getProdutos() {
+        return this.produtos;
     }
 
-    public void setPrateleiras(Produtos[] prateleiras) {
-        this.prateleiras = prateleiras;
+    public void setProdutos(ArrayList<Produtos> produtos) {
+        this.produtos = produtos;
     }
 
-    public Estoque prateleiras(Produtos[] prateleiras) {
-        this.prateleiras = prateleiras;
+    public Estoque produtos(ArrayList<Produtos> produtos) {
+        this.produtos = produtos;
         return this;
     }
 
@@ -35,20 +33,17 @@ public class Estoque {
             return false;
         }
         Estoque estoque = (Estoque) o;
-        return Objects.equals(prateleiras, estoque.prateleiras);
+        return Objects.equals(produtos, estoque.produtos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(prateleiras);
+        return Objects.hashCode(produtos);
     }
 
     @Override
     public String toString() {
-        return "{" +
-            " prateleiras='" + getPrateleiras() + "'" +
-            "}";
+        return "{" + " produtos='" + getProdutos() + "'" + "}";
     }
-
 
 }
