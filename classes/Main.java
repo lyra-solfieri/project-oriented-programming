@@ -77,6 +77,7 @@ public class Main {
 
                     System.out.println("Acessar estoque");
                     System.out.println(estoque.toString());
+
                     break;
 
                 case 4:
@@ -110,8 +111,10 @@ public class Main {
                     break;
 
                 case 0:
+
                     System.out.println("Saiu!");
                     yes = false;
+
                     break;
 
                 default:
@@ -120,6 +123,6 @@ public class Main {
             }
 
         }
-
+        
     }
 }

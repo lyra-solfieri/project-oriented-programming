@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Gerente extends Pessoas {
+   
     private String login;
     private String senha;
 

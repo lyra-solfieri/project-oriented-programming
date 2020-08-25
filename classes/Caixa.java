@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Caixa {
+    
     private double vendas;
     private double compras;
     private double saldo;

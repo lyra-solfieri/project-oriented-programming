@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Funcionario extends Pessoas {
+   
     private String codigo;
     private String senha;
 
