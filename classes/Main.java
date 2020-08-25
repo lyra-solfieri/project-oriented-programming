@@ -7,6 +7,7 @@ public class Main {
         ArrayList<Caixa> caixa = new ArrayList<Caixa>();
         ArrayList<Estoque> estoque = new ArrayList<Estoque>();
         ArrayList<Produtos> p = new ArrayList<Produtos>();
+        Gerente gerente = new Gerente();
 
         boolean yes = true;
         while (yes) {
@@ -25,9 +26,39 @@ public class Main {
                     System.out.println("Cadastrar clientes");
                     break;
                 case 3:
+                    // Acesso ao estoque
+                    System.out.println("Digite o usuário: ");
+                    String login = scan.next();
+                    System.out.println("Digite a senha: ");
+                    String senha = scan.next();
 
-                    System.out.println("Acessar estoque");
-                    System.out.println(estoque.toString());
+                    if (gerente.getLOGIN().equals(login) & gerente.getSENHA().equals(senha)) {
+                        System.out.println("Acessar estoque: 1-Ver todos os produtos 2-pesquisar por código do produto");
+                                
+                        int o = scan.nextInt();
+                        if (o == 1) {
+                            System.out.println(estoque.toString());
+
+                        } else if (o == 2) {
+                            System.out.println("Digite o Código");
+                            int testar = scan.nextInt();
+                            for (Produtos pro : p) {
+                                if (pro.getCodigo() == testar) {
+                                    System.out.println("Está na lista");
+                                    System.out.println(pro.toString());
+                                }else if (pro.getQuantidade() == 0) {
+                                    System.out.println("Operação inválida");
+                                }
+                                   
+                                
+
+                            }
+                        }
+
+                    }  else {
+                        System.out.println("Login ou senha inválidos");
+                    }
+
                     break;
                 case 4:
                     System.out.println("Cancelar vendas");
