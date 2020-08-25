@@ -6,6 +6,7 @@ public abstract class Pessoas {
     private String cpf;
     private String email;
     private String telefone;
+    private double value;
 
     public Pessoas() {
     }
