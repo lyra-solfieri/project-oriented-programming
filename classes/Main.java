@@ -4,9 +4,12 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        String nomeCliente, cpf, email, telefone;
         ArrayList<Caixa> caixa = new ArrayList<Caixa>();
         ArrayList<Estoque> estoque = new ArrayList<Estoque>();
         ArrayList<Produtos> p = new ArrayList<Produtos>();
+        ArrayList<Clientes> c = new ArrayList<Clientes>();
+        ArrayList<Endereco> endereco = new ArrayList<Endereco>();
         Gerente gerente = new Gerente();
 
         boolean yes = true;
@@ -24,6 +27,46 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Cadastrar clientes");
+                    System.out.println("Cadastrar clientes");
+                    System.out.println("Dados pessoais");
+                    System.out.println("*** *** ***");
+                    System.out.println("Digite o nome do cliente : ");
+                    nomeCliente = scan.next();
+                    System.out.println("Digite o cpf do cliente : ");
+                    cpf = scan.next();
+                    System.out.println("Digite o email do cliente : ");
+                    email = scan.next();
+                    System.out.println("Digite o telefone do cliente : ");
+                    telefone = scan.next();
+                    System.out.println("*** *** ***");
+                    System.out.println("Endereço");
+                    // Endereco e = new Endereco();
+
+                    System.out.println("Digite o nome da rua : ");
+                    String rua = scan.next();
+                    // e.setRua(rua);
+                    System.out.println("Digite o nome do bairro : ");
+                    String bairro = scan.next();
+                    // e.setBairro(bairro);
+                    System.out.println("Digite o número da residencia : ");
+                    int numeroCasa = scan.nextInt();
+                    System.out.println("Digite a cidade : ");
+                    String cidade = scan.next();
+                    // e.setCidade(cidade);
+                    System.out.println("Digite o estado : ");
+                    String uf = scan.next();
+                    // e.UF(uf);
+                    System.out.println("Digite o cep : ");
+                    String cep = scan.next();
+                    // e.cep(cep);
+                    System.out.println("Digite o complemento : ");
+                    String complemento = scan.next();
+                    // e.complemento(complemento);
+                    c.add(new Clientes(nomeCliente, cpf, email, telefone, endereco));
+                    endereco.add(new Endereco(rua, bairro, numeroCasa, cidade, uf, cep, complemento));
+
+                    System.out.println("Cliente cadastrado com sucesso!");
+
                     break;
                 case 3:
                     // Acesso ao estoque
@@ -33,8 +76,9 @@ public class Main {
                     String senha = scan.next();
 
                     if (gerente.getLOGIN().equals(login) & gerente.getSENHA().equals(senha)) {
-                        System.out.println("Acessar estoque: 1-Ver todos os produtos 2-pesquisar por código do produto");
-                                
+                        System.out
+                                .println("Acessar estoque: 1-Ver todos os produtos 2-pesquisar por código do produto");
+
                         int o = scan.nextInt();
                         if (o == 1) {
                             System.out.println(estoque.toString());
@@ -46,16 +90,14 @@ public class Main {
                                 if (pro.getCodigo() == testar) {
                                     System.out.println("Está na lista");
                                     System.out.println(pro.toString());
-                                }else if (pro.getQuantidade() == 0) {
+                                } else if (pro.getQuantidade() == 0) {
                                     System.out.println("Operação inválida");
                                 }
-                                   
-                                
 
                             }
                         }
 
-                    }  else {
+                    } else {
                         System.out.println("Login ou senha inválidos");
                     }
 
@@ -79,6 +121,25 @@ public class Main {
                     estoque.add(new Estoque(p));
                     System.out.println("Compra efetuada com sucesso!");
                     break;
+                case 7:
+                    String cpfCliente;
+                    System.out.println("Digite o cpf do cliente : ");
+                    cpfCliente = scan.next();
+
+                    for (int i = 0; i < c.size(); i++) {
+                        if (c.get(i).getCpf().equals(cpfCliente)) {
+                            c.remove(c.get(i));
+
+                        } else {
+                            System.out.println("Cliente não encontrado!");
+                        }
+
+                    }
+
+                    System.out.println("Cliente apagado do banco de dados!");
+
+                    break;
+
                 case 0:
                     System.out.println("Saiu!");
                     yes = false;
