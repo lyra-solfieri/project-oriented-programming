@@ -1,27 +1,32 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Clientes extends Pessoas {
-   
-    private Endereco endereco;
 
-    public Clientes(String nome, String cpf, String email, String telefone, Endereco endereco) {
+    private ArrayList<Endereco> e;
+
+    public Clientes(String nome, String cpf, String email, String telefone, ArrayList<Endereco> e) {
         super(nome, cpf, email, telefone);
-        this.endereco = endereco;
+        this.e = e;
     }
 
     public Clientes() {
     }
 
-    public Endereco getEndereco() {
-        return this.endereco;
+    public Clientes(ArrayList<Endereco> e) {
+        this.e = e;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public ArrayList<Endereco> getE() {
+        return this.e;
     }
 
-    public Clientes endereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setE(ArrayList<Endereco> e) {
+        this.e = e;
+    }
+
+    public Clientes e(ArrayList<Endereco> e) {
+        this.e = e;
         return this;
     }
 
@@ -33,17 +38,18 @@ public class Clientes extends Pessoas {
             return false;
         }
         Clientes clientes = (Clientes) o;
-        return Objects.equals(endereco, clientes.endereco);
+        return Objects.equals(e, clientes.e);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(endereco);
+        return Objects.hashCode(e);
     }
 
     @Override
     public String toString() {
-        return "{" + " endereco='" + getEndereco() + "'" + "}";
-    }
+        return "{" + " nome='" + getNome() + "'" + ", cpf='" + getCpf() + "'" + ", email='" + getEmail() + "'"
+                + ", telefone='" + getTelefone() + "'" + " e='" + getE() + "'" + "}";
 
+    }
 }

@@ -7,19 +7,19 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         String nomeCliente, cpf, email, telefone;
-        int numeroCasa;
 
         ArrayList<Caixa> caixa = new ArrayList<Caixa>();
         ArrayList<Estoque> estoque = new ArrayList<Estoque>();
         ArrayList<Produtos> p = new ArrayList<Produtos>();
         ArrayList<Clientes> c = new ArrayList<Clientes>();
+        ArrayList<Endereco> endereco = new ArrayList<Endereco>();
 
         boolean yes = true;
         while (yes) {
             System.out.println("\nAteliê EncanARTE" + "\n1.Realizar vendas " + "\n2. Cadastrar clientes "
 
                     + "\n3. Acessar Estoque " + "\n4. Cancelar venda" + "\n5. Listar Clientes"
-                    + "\n6. Aquisição de  produtos" + "\n0. Sair");
+                    + "\n6. Aquisição de  produtos" + "\n7. Deletar Cliente" + "\n0. Sair");
 
             int op = scan.nextInt();
             switch (op) {
@@ -43,32 +43,31 @@ public class Main {
                     telefone = scan.next();
                     System.out.println("*** *** ***");
                     System.out.println("Endereço");
-                    Endereco e = new Endereco();
+                    // Endereco e = new Endereco();
 
                     System.out.println("Digite o nome da rua : ");
                     String rua = scan.next();
-                    e.setRua(rua);
+                    // e.setRua(rua);
                     System.out.println("Digite o nome do bairro : ");
                     String bairro = scan.next();
-                    e.setBairro(bairro);
+                    // e.setBairro(bairro);
                     System.out.println("Digite o número da residencia : ");
-                    // Strin numeroCasa = scan.nextInt();
+                    int numeroCasa = scan.nextInt();
                     System.out.println("Digite a cidade : ");
                     String cidade = scan.next();
-                    e.setCidade(cidade);
+                    // e.setCidade(cidade);
                     System.out.println("Digite o estado : ");
                     String uf = scan.next();
-                    e.UF(uf);
+                    // e.UF(uf);
                     System.out.println("Digite o cep : ");
                     String cep = scan.next();
-                    e.cep(cep);
+                    // e.cep(cep);
                     System.out.println("Digite o complemento : ");
                     String complemento = scan.next();
-                    e.complemento(complemento);
-                    // enderecos.add(new Endereco(rua, bairro, numeroCasa, cidade, uf, cep,
-                    // complemento)
+                    // e.complemento(complemento);
+                    c.add(new Clientes(nomeCliente, cpf, email, telefone, endereco));
+                    endereco.add(new Endereco(rua, bairro, numeroCasa, cidade, uf, cep, complemento));
 
-                    c.add(new Clientes(nomeCliente, cpf, email, telefone, e));
                     System.out.println("Cliente cadastrado com sucesso!");
 
                     break;
@@ -110,6 +109,26 @@ public class Main {
 
                     break;
 
+                case 7:
+
+                    String cpfCliente;
+                    System.out.println("Digite o cpf do cliente : ");
+                    cpfCliente = scan.next();
+
+                    for (int i =0;i < c.size();i++) {
+                        if (c.get(i).getCpf().equals(cpfCliente)) {
+                            c.remove(c.get(i));
+
+                        } else {
+                            System.out.println("Cliente não encontrado!");
+                        }
+
+                    }
+
+                    System.out.println("Cliente apagado do banco de dados!");
+
+                    break;
+
                 case 0:
 
                     System.out.println("Saiu!");
@@ -123,6 +142,6 @@ public class Main {
             }
 
         }
-        
+
     }
 }
