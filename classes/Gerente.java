@@ -1,43 +1,21 @@
 import java.util.Objects;
 
 public class Gerente extends Pessoas {
-   
+
     private String login;
     private String senha;
+    private final String LOGIN = "adm";
+    private final String SENHA = "adm";
 
-    public Gerente(String nome, String cpf, String email, String telefone, String endereco, String login,
-            String senha) {
-        super(nome, cpf, email, telefone);
-        this.login = login;
-        this.senha = senha;
+    public Gerente() {
     }
 
-    
-
-    public String getLogin() {
-        return this.login;
+    public String getLOGIN() {
+        return this.LOGIN;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return this.senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public Gerente login(String login) {
-        this.login = login;
-        return this;
-    }
-
-    public Gerente senha(String senha) {
-        this.senha = senha;
-        return this;
+    public String getSENHA() {
+        return this.SENHA;
     }
 
     @Override
@@ -48,19 +26,16 @@ public class Gerente extends Pessoas {
             return false;
         }
         Gerente gerente = (Gerente) o;
-        return Objects.equals(login, gerente.login) && Objects.equals(senha, gerente.senha);
+        return Objects.equals(LOGIN, gerente.LOGIN) && Objects.equals(SENHA, gerente.SENHA);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(login, senha);
+        return Objects.hash(LOGIN, SENHA);
     }
 
     @Override
     public String toString() {
-        return "{" +
-            " login='" + getLogin() + "'" +
-            ", senha='" + getSenha() + "'" +
-            "}";
+        return "{" + " LOGIN='" + getLOGIN() + "'" + ", SENHA='" + getSENHA() + "'" + "}";
     }
 }

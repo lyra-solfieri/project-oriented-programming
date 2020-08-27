@@ -1,31 +1,26 @@
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Clientes extends Pessoas {
 
-    private ArrayList<Endereco> e;
-
-    public Clientes(String nome, String cpf, String email, String telefone, ArrayList<Endereco> e) {
-        super(nome, cpf, email, telefone);
-        this.e = e;
-    }
+    private Endereco e;
 
     public Clientes() {
     }
 
-    public Clientes(ArrayList<Endereco> e) {
+    public Clientes(String nome, String cpf, String email, String telefone, Endereco e) {
+        super(nome, cpf, email, telefone);
         this.e = e;
     }
 
-    public ArrayList<Endereco> getE() {
+    public Endereco getE() {
         return this.e;
     }
 
-    public void setE(ArrayList<Endereco> e) {
+    public void setE(Endereco e) {
         this.e = e;
     }
 
-    public Clientes e(ArrayList<Endereco> e) {
+    public Clientes e(Endereco e) {
         this.e = e;
         return this;
     }
@@ -48,8 +43,9 @@ public class Clientes extends Pessoas {
 
     @Override
     public String toString() {
+
         return "{" + " nome='" + getNome() + "'" + ", cpf='" + getCpf() + "'" + ", email='" + getEmail() + "'"
                 + ", telefone='" + getTelefone() + "'" + " e='" + getE() + "'" + "}";
-
     }
+
 }
