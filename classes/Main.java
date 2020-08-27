@@ -17,12 +17,16 @@ public class Main {
             System.out.println("\nAteliê EncanARTE" + "\n1.Realizar vendas " + "\n2. Cadastrar clientes "
 
                     + "\n3. Acessar Estoque " + "\n4. Cancelar venda" + "\n5. Listar Clientes"
-                    + "\n6. Aquisição de  produtos" + "\n0. Sair");
+                    + "\n6. Aquisição de  produtos" + "\n0. Sair" + "\n7.Excluir Clientes");
 
             int op = scan.nextInt();
             switch (op) {
                 case 1:
+                    System.out.println("Cliente cadastrado? (y/n): ");
+                    
                     System.out.println("Digite o código do produto:");
+                    int codigo2 = scan.nextInt();
+
 
                     break;
                 case 2:
