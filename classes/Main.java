@@ -154,13 +154,16 @@ public class Main {
                     System.out.println("Compra efetuada com sucesso!");
                     break;
                 case 7:
-                    String cpfCliente;
+
                     System.out.println("Digite o cpf do cliente : ");
-                    cpfCliente = scan.next();
+                    cpf = scan.next();
 
                     for (int i = 0; i < c.size(); i++) {
-                        if (c.get(i).getCpf().equals(cpfCliente)) {
+
+                        if (c.get(i).getCpf().equals(cpf)) {
+
                             c.remove(c.get(i));
+                            System.out.println("teste");
 
                         } else {
                             System.out.println("Cliente não encontrado!");
@@ -173,9 +176,14 @@ public class Main {
                     break;
 
                 case 0:
+
                     System.out.println("Saiu!");
                     yes = false;
+
+                    break;
+
                 default:
+
                     break;
             }
 
