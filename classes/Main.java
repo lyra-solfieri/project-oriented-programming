@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -25,8 +26,6 @@ public class Main {
             int op = scan.nextInt();
             switch (op) {
                 case 1:
-
-                    // consequêntemente some os preços e subtraia a quantidade de cada.
 
                     System.out.println("Digite o código do produto: ");
                     int codigo1 = scan.nextInt();
@@ -121,10 +120,52 @@ public class Main {
 
                     break;
                 case 4:
-                    System.out.println("Cancelar vendas");
+                    System.out.println("Cancelar vendas: ");
+                    int cod4 = scan.nextInt();
+                    for (Produtos produtos4 : p) {
+                        if (produtos4.getCodigo() == cod4) {
+                            // ArrayList<Caixa> caixa4 = new ArrayList<>();
+                            // caixa4.add(caixa.get(caixa.size() - 2));
+                            double preco = 0;
+                            preco -= produtos4.getPreco();
+                            double vendas4 = 1;
+                            vendas4 -= 1;
+                            caixa.add(new Caixa(vendas4, preco));
+                            System.out.println("Saldo atual: " + caixa.get(caixa.size() - 1));
+
+                        } else if (produtos4.getCodigo() != cod4) {
+                            System.out.println("Código inválido!");
+
+                        }
+
+                    }
+
                     break;
                 case 5:
-                    System.out.println("Listar Clientes");
+
+                    System.out.println("Digite 1-Para listar todos os clientes. 2-Para buscar um cliente ");
+                    op = scan.nextInt();
+
+                    if (op == 1) {
+
+                        System.out.println("Listar Clientes");
+                        System.out.println(c.toString());
+
+                    } else if (op == 2) {
+
+                        System.out.println("Digite o cpf do cliente o qual deseja consultar : ");
+                        cpf = scan.next();
+
+                        for (Clientes clientes : c) {
+
+                            if (clientes.getCpf().equals(cpf)) {
+
+                                System.out.println(clientes.toString());
+
+                            }
+                        }
+                    }
+
                     break;
                 case 6:
                     System.out.println(" Aquisição de produtos" + "\nDigite o código do produto");
@@ -140,13 +181,16 @@ public class Main {
                     System.out.println("Compra efetuada com sucesso!");
                     break;
                 case 7:
-                    String cpfCliente;
+
                     System.out.println("Digite o cpf do cliente : ");
-                    cpfCliente = scan.next();
+                    cpf = scan.next();
 
                     for (int i = 0; i < c.size(); i++) {
-                        if (c.get(i).getCpf().equals(cpfCliente)) {
+
+                        if (c.get(i).getCpf().equals(cpf)) {
+
                             c.remove(c.get(i));
+                            System.out.println("teste");
 
                         } else {
                             System.out.println("Cliente não encontrado!");
@@ -155,24 +199,16 @@ public class Main {
                     }
 
                     System.out.println("Cliente apagado do banco de dados!");
-
-                    break;
                 case 8:
 
-                    if(caixa.isEmpty()){
+                    if (caixa.isEmpty()) {
                         System.out.println("Seu saldo está zerado, precisa realizar vendas");
                         break;
 
-                    }else{
+                    } else {
                         System.out.println("Total de vendas e saldo: " + caixa.get(caixa.size() - 1));
 
                     }
-                       
-                    
-                       
-                        
-                   
-                   
 
                     break;
                 case 0:
