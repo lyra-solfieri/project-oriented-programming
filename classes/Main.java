@@ -10,23 +10,37 @@ public class Main {
         ArrayList<Produtos> p = new ArrayList<Produtos>();
         ArrayList<Clientes> c = new ArrayList<Clientes>();
         ArrayList<Endereco> endereco = new ArrayList<Endereco>();
+        double saldo = 0;
         Gerente gerente = new Gerente();
+        double soma = 0;
+        int quant = 1;
 
         boolean yes = true;
         while (yes) {
-            System.out.println("\nAteliê EncanARTE" + "\n1.Realizar vendas " + "\n2. Cadastrar clientes "
+            System.out.println("\nAteliê EncanARTE" + "\n1. Realizar Vendas " + "\n2. Cadastrar Clientes "
 
-                    + "\n3. Acessar Estoque " + "\n4. Cancelar venda" + "\n5. Listar Clientes"
-                    + "\n6. Aquisição de  produtos" + "\n0. Sair" + "\n7.Excluir Clientes");
+                    + "\n3. Acessar Estoque " + "\n4. Cancelar Venda" + "\n5. Listar Clientes"
+                    + "\n6. Aquisição de Produtos" + "\n7. Excluir Clientes" + "\n8. Ver Saldo Caixa" + "\n0. Sair");
 
             int op = scan.nextInt();
             switch (op) {
                 case 1:
-                    System.out.println("Cliente cadastrado? (y/n): ");
-                    
-                    System.out.println("Digite o código do produto:");
-                    int codigo2 = scan.nextInt();
 
+                    // consequêntemente some os preços e subtraia a quantidade de cada.
+
+                    System.out.println("Digite o código do produto: ");
+                    int codigo1 = scan.nextInt();
+                    for (Produtos p1 : p) {
+                        if (p1.getCodigo() == codigo1) {
+                            soma += 1;
+                            saldo += p1.getPreco();
+
+                            caixa.add(new Caixa(soma, saldo));
+                            System.out.println("Compra realizado com sucesso !");
+                        } else if (codigo1 == 0) {
+                            System.out.println("Operação inválida");
+                        }
+                    }
 
                     break;
                 case 2:
@@ -143,7 +157,24 @@ public class Main {
                     System.out.println("Cliente apagado do banco de dados!");
 
                     break;
+                case 8:
 
+                    if(caixa.isEmpty()){
+                        System.out.println("Seu saldo está zerado, precisa realizar vendas");
+                        break;
+
+                    }else{
+                        System.out.println("Total de vendas e saldo: " + caixa.get(caixa.size() - 1));
+
+                    }
+                       
+                    
+                       
+                        
+                   
+                   
+
+                    break;
                 case 0:
                     System.out.println("Saiu!");
                     yes = false;

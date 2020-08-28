@@ -1,16 +1,14 @@
 import java.util.Objects;
 
 public class Caixa {
-    private double vendas;
-    private double compras;
-    private double saldo;
+    private double vendas = 0;
+    private double saldo = 0;
 
     public Caixa() {
     }
 
-    public Caixa(double vendas, double compras, double saldo) {
+    public Caixa(double vendas, double saldo) {
         this.vendas = vendas;
-        this.compras = compras;
         this.saldo = saldo;
     }
 
@@ -20,14 +18,6 @@ public class Caixa {
 
     public void setVendas(double vendas) {
         this.vendas = vendas;
-    }
-
-    public double getCompras() {
-        return this.compras;
-    }
-
-    public void setCompras(double compras) {
-        this.compras = compras;
     }
 
     public double getSaldo() {
@@ -40,11 +30,6 @@ public class Caixa {
 
     public Caixa vendas(double vendas) {
         this.vendas = vendas;
-        return this;
-    }
-
-    public Caixa compras(double compras) {
-        this.compras = compras;
         return this;
     }
 
@@ -61,17 +46,21 @@ public class Caixa {
             return false;
         }
         Caixa caixa = (Caixa) o;
-        return vendas == caixa.vendas && compras == caixa.compras && saldo == caixa.saldo;
+        return vendas == caixa.vendas && saldo == caixa.saldo;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vendas, compras, saldo);
+        return Objects.hash(vendas, saldo);
     }
 
     @Override
     public String toString() {
-        return "{" + " vendas='" + getVendas() + "'" + ", compras='" + getCompras() + "'" + ", saldo='" + getSaldo()
-                + "'" + "}";
+        return "{" +
+            " vendas='" + getVendas() + "'" +
+            ", saldo='" + getSaldo() + "'" +
+            "}";
     }
+
+  
 }
